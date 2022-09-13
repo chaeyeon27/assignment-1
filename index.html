@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>mylovelydog</title>
+	<style type="text/css">
+		body{
+			background: #FF9799;
+		}
+		header,h2,h1,p{
+			margin: 0;
+		}
+		.row{
+			width: 1200px; margin: auto;		
+			position: relative;
+		}
+		.all-flex{
+			margin: 0 auto;
+			margin-top: 150px;
+			display: flex;
+			gap: 200px;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.title-audio{
+		}
+		.image{
+
+		}
+
+		img{
+			display: block;
+			width: 270px;
+			margin: 10px;
+		}
+
+		.button{
+			margin-top: 40px;
+			margin-bottom: 40px;
+			width: 150px;
+			font-size: 24pt;
+			text-align: center;
+			color: #ffffff;
+			border-radius: 100px;
+			border: 1px solid #Ffffff;
+
+		}
+
+		.audio{
+			margin-top: 62px;
+		}
+
+		h2,p{
+			color: white;
+
+		}
+
+		h2{
+			margin-top: 30px;
+		}
+		p{
+			margin-top: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<div class="row">
+		<div class="all-flex">
+		<div class="title-audio">
+			<img src="title.svg">
+		<h2>강아지 헌정송</h2>
+		<p>크러쉬 - 우아해(woo-ah)</p>
+	<div class="audio">
+	<input id="volume" type="range" max="100" min="0" value="100">
+			<div id="playbt" class="button">play</div>
+			<div id="stopbt" class="button">stop</div>
+			<audio id="wooahSnd" src="wooah.mp3"></audio>
+	</div>
+		</div>
+			<div class="image">
+				<img id="before1" src="before1.svg">
+				<img id="before2" src="before2.svg">
+			</div>
+		</div>
+		</div>
+	</header>
+
+	<script type="text/javascript">
+
+		var state = false;
+
+		before1.onclick = function(){
+			// body...
+			if(state){
+				before1.src = "after1.svg"
+				state = false;
+			}else{
+			before1.src = "before1.svg"
+			state = true;
+		}
+	}
+
+	before2.onclick = function(){
+			// body...
+			if(state){
+				before2.src = "after2.svg"
+				state = false;
+			}else{
+			before2.src = "before2.svg"
+			state = true;
+		}
+	}
+
+	
+	volume.value = 100;
+		volume.oninput = function(){
+			wooahSnd.volume = volume.value / 100; 
+		}
+
+		playbt.onclick = function(){
+			wooahSnd.play();
+			before1.src = "after1.svg"
+			before2.src = "after2.svg"
+			before1.style.width = "270px";
+			before2.style.width = "270px";
+
+		}
+		stopbt.onclick = function(){
+			wooahSnd.pause();
+			before1.src = "before1.svg"
+			before2.src = "before2.svg"
+		}
+
+
+		playbt.onmouseover = function(){
+			playbt.style.backgroundColor = "white";
+			playbt.style.color = "#FF9799";
+		}
+
+		playbt.onmouseout = function(){
+			playbt.style.backgroundColor = "#FF9799";
+			playbt.style.color = "white";
+		}
+
+		stopbt.onmouseover = function(){
+			stopbt.style.backgroundColor = "white";
+			stopbt.style.color = "#FF9799";
+		}
+
+		stopbt.onmouseout = function(){
+			stopbt.style.backgroundColor = "#FF9799";
+			stopbt.style.color = "white";
+		}
+
+	</script>
+</body>
+</html>
